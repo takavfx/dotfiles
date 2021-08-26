@@ -1,0 +1,10 @@
+# Ignore everything
+*
+
+# Not Ignore .gitignore
+!.gitignore
+
+# Vim
+!.vimrc
+!/.vim/dein.toml
+
