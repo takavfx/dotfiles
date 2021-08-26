@@ -1,10 +1,11 @@
 # Ignore everything
 *
 
-# Not Ignore .gitignore
+# Not Git related
 !.gitignore
+!README.md
 
 # Vim
 !.vimrc
-!/.vim/dein.toml
+!.dein.toml
 

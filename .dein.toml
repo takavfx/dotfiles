@@ -1,0 +1,124 @@
+## Base
+[[plugins]]
+repo= 'Shougo/dein.vim'
+
+
+## Editor
+[[plugins]]
+repo = 'scrooloose/syntastic'
+
+#[[plugins]]
+#repo = 'bronson/vim-trailing-whitespace'
+
+# [[plugins]]
+# repo = 'Yggdroot/indentLine'
+
+[[plugins]]
+repo = 'nathanaelkane/vim-indent-guides'
+
+[[plugins]]
+repo = 'jiangmiao/auto-pairs'
+
+[[plugins]]
+repo = 'tpope/vim-surround'
+
+[[plugins]]
+repo = 'easymotion/vim-easymotion'
+
+[[plugins]]
+repo = 'scrooloose/nerdcommenter'
+
+[[plugins]]
+repo = 'terryma/vim-expand-region'
+
+[[plugins]]
+repo = 'violetyk/iikanji-markdown.vim'
+
+[[plugins]]
+repo = 'terryma/vim-multiple-cursors'
+
+[[plugins]]
+repo = 'kana/vim-operator-user'
+
+[[plugins]]
+repo = 'rhysd/vim-operator-surround'
+
+[[plugins]]
+repo = 'fatih/vim-go'
+
+## Auto Complate
+#[[plugins]]
+#repo = 'Shougo/ddc.vim'
+#depends = 'denops.vim'
+
+#[[plugins]]
+#repo = 'Shougo/ddc-around'
+
+#[[plugins]]
+#repo = 'Shougo/ddc-sorter_rank'
+
+#[[plugins]]
+#repo = 'Shougo/ddc-matcher_head'
+
+#[[plugins]]
+#repo = 'high-moctane/nextword'
+
+#[[plugins]]
+#repo = 'high-moctane/nextword-data'
+
+#[[plugins]]
+#repo = 'Shougo/ddc-nextword'
+
+#[[plugins]]
+#repo = 'Shougo/neco-vim'
+
+[[plugins]]
+repo = 'prabirshrestha/vim-lsp'
+
+[[plugins]]
+repo = 'mattn/vim-lsp-settings'
+depends = 'vim-lsp'
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete.vim'
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete-lsp.vim'
+
+[[plugins]]
+repo = 'keremc/asyncomplete-clang.vim'
+
+
+## Formatter
+[[plugins]]
+repo = 'prettier/vim-prettier'
+build = 'npm install'
+
+## Language
+[[plugins]]
+repo = 'sheerun/vim-polyglot'
+
+
+## Status line
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+
+
+## Utilities
+[[plugins]]
+repo = 'junegunn/goyo.vim' # Enable Zen mode
+
+[[plugins]]
+repo = 'vim-denops/denops.vim' # Deno Base Plugin
+
+[[plugins]]
+repo = 'itchyny/calendar.vim' # Enable calendar view
+
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+
+[[plugins]]
+repo = 'LeafCage/vimhelpgenerator' # Help Generator

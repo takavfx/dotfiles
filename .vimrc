@@ -1,16 +1,24 @@
-"
-" .vimrc settings
+"                                _                    
+"                         __   _(_)_ __ ___  _ __ ___ 
+"                         \ \ / / | '_ ` _ \| '__/ __|
+"                          \ V /| | | | | | | | | (__ 
+"                         (_)_/ |_|_| |_| |_|_|  \___|
 "
 
 " Encoding
 set encoding=utf-8
-scriptencoding utf-8
 set fileencoding=utf-8
-set fileencodings=utif-8,cp932
+set fileencodings=utf-8,cp932
 
+" Set UI Language
+set langmenu=en_US.UTF-8
 
 " Set Options
 set number
+
+
+" Edit
+set backspace=indent,eol,start
 
 
 " Set Status Line
@@ -29,10 +37,6 @@ set softtabstop=4
 set shiftwidth=4
 
 
-" Backspace
-set backspace=indent,eol,start
-
-
 " File
 set nowritebackup
 set nobackup
@@ -43,53 +47,126 @@ set noswapfile
 syntax enable
 
 
-" Plugins ============================================================
+" Tab
+map <C-T>l :tabnext<cr>
+map <C-T>h :tabprevious<cr>
+map <C-T>n :tabnew<cr>
+map <C-T>c :tabclose<cr>
+
+
+" Paste from Clipboard
+if &term =~ "xterm"
+	let &t_SI .= "\e[?2004h"
+	let &t_EI .= "\e[?2004l"
+	let &pastetoggle = "\e[201~"
+
+	function XTermPasteBegin(ret)
+		set paste
+		return a:ret
+	endfunction
+
+	inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
+endif
+
+
+" Set credentials
+
+
+" Plugin Development {{{
+
+set runtimepath^=~/Denops/_develop
+
+" }}}
+
+
+" Plugins {{{
 " dein.vim settings {{{
-" install dir {{{
-let s:dein_dir = expand('~/.vim/dein')
+let s:dein_dir = expand('~/.cache/dein')
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 " }}}
 
-" dein installation check {{{
-if &runtimepath !~# '/dein.vim'
-  if !isdirectory(s:dein_repo_dir)
-    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
-  endif
-  execute 'set runtimepath^=' . s:dein_repo_dir
+"dein installation check {{{
+if $runtimepath !~# '/dein.vim'
+	if !isdirectory(s:dein_repo_dir)
+		execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+	endif
+	execute 'set runtimepath^=' . s:dein_repo_dir
 endif
 " }}}
 
 " begin settings {{{
 if dein#load_state(s:dein_dir)
-  call dein#begin(s:dein_dir)
+	call dein#begin(s:dein_dir)
 
-  " .toml file
-  let s:rc_dir = expand('~/.vim')
-  if !isdirectory(s:rc_dir)
-    call mkdir(s:rc_dir, 'p')
-  endif
-  let s:toml = s:rc_dir . '/dein.toml'
+	" .toml file
+	let s:rc_dir = expand('~')
+	if !isdirectory(s:rc_dir)
+		call mkdir(s:rc_dir, 'p')
+	endif
+	let s:toml = s:rc_dir . '/.dein.toml'
 
-  " read toml and cache
-  call dein#load_toml(s:toml, {'lazy': 0})
+	" read toml and cache
+	call dein#load_toml(s:toml, {'lazy': 0})
 
-  " end settings
-  call dein#end()
-  call dein#save_state()
+	" end settings
+ 	call dein#end()
+	call dein#save_state()
 endif
-" }}}
-
+" }}}}
+ 
 " plugin installation check {{{
 if dein#check_install()
-  call dein#install()
+	call dein#install()
 endif
 " }}}
 
 " plugin remove check {{{
 let s:removed_plugins = dein#check_clean()
 if len(s:removed_plugins) > 0
-  call map(s:removed_plugins, "delete(v:val, 'rf')")
-  call dein#recache_runtimepath()
+	call map(s:removed_plugins, "delete(v:val, 'rf')")
+	call dein#recache_runtimepath()
 endif
 " }}}
 
+
+" plugin debug {{{
+
+let g:denops#debug = 1
+
+" }}}
+
+
+" plugin settings {{{
+" settings: vim-polyglot
+let g:polyglot_disabled = ['markdown']
+
+" settings: expand_region
+vmap v <Plug>(expand_region_expand)
+map <C-v> <Plug>(expand_region_shrink)
+
+"settings: easy_motion
+map mj <Plug>(easy_motion-bd-w)
+nmap mj <Plug>(easymotion-overwin-w)
+map ml <Plug>(easymotion-bd-jk)
+nmap ml <Plug>(easymotion-overwin-line)
+map mk <Plug>(easymotion-bd-f)
+nmap mk <Plug>(easymotion-verwin-f)
+
+" vim-operator-surround
+map <Leader>s <Plug>(operator-surround-append)
+
+" settings: open-browser
+nmap <Leader>b <Plug>(openbrowser-smart-search)
+vmap <Leader>b <Plug>(openbrowser-smart-search)
+
+" settings: calendar
+let g:calendar_first_day = "monday"
+
+" settings: auto complete {{{
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
+
+" }}}
+
+" }}}
