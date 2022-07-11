@@ -1,9 +1,13 @@
+##--------------------------------------------------
 ## Base
+##--------------------------------------------------
 [[plugins]]
 repo= 'Shougo/dein.vim'
 
 
+##--------------------------------------------------
 ## Editor
+##--------------------------------------------------
 [[plugins]]
 repo = 'scrooloose/syntastic'
 
@@ -21,15 +25,30 @@ repo = 'jiangmiao/auto-pairs'
 
 [[plugins]]
 repo = 'tpope/vim-surround'
+hook_add = '''
+map <Leader>s <Plug>(operator-surround-append)
+'''
 
 [[plugins]]
 repo = 'easymotion/vim-easymotion'
+hook_add = '''
+map mj <Plug>(easy_motion-bd-w)
+nmap mj <Plug>(easymotion-overwin-w)
+map ml <Plug>(easymotion-bd-jk)
+nmap ml <Plug>(easymotion-overwin-line)
+map mk <Plug>(easymotion-bd-f)
+nmap mk <Plug>(easymotion-verwin-f)
+'''
 
 [[plugins]]
 repo = 'scrooloose/nerdcommenter'
 
 [[plugins]]
 repo = 'terryma/vim-expand-region'
+hook_add = '''
+vmap v <Plug>(expand_region_expand)
+map <C-v> <Plug>(expand_region_shrink)
+'''
 
 [[plugins]]
 repo = 'violetyk/iikanji-markdown.vim'
@@ -46,7 +65,9 @@ repo = 'rhysd/vim-operator-surround'
 [[plugins]]
 repo = 'fatih/vim-go'
 
+##--------------------------------------------------
 ## Auto Complate
+##--------------------------------------------------
 #[[plugins]]
 #repo = 'Shougo/ddc.vim'
 #depends = 'denops.vim'
@@ -81,6 +102,11 @@ depends = 'vim-lsp'
 
 [[plugins]]
 repo = 'prabirshrestha/asyncomplete.vim'
+hook_add = '''
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
+'''
 
 [[plugins]]
 repo = 'prabirshrestha/asyncomplete-lsp.vim'
@@ -89,33 +115,65 @@ repo = 'prabirshrestha/asyncomplete-lsp.vim'
 repo = 'keremc/asyncomplete-clang.vim'
 
 
+##--------------------------------------------------
 ## Formatter
+##--------------------------------------------------
 [[plugins]]
 repo = 'prettier/vim-prettier'
 build = 'npm install'
 
+##--------------------------------------------------
 ## Language
+##--------------------------------------------------
 [[plugins]]
 repo = 'sheerun/vim-polyglot'
+hook_add = '''
+let g:polyglot_disabled = ['markdown']
+'''
 
-
+##--------------------------------------------------
 ## Status line
+##--------------------------------------------------
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 
+##--------------------------------------------------
+## Finder
+##--------------------------------------------------
+[[plugins]]
+repo = 'junegunn/fzf'
+build = './install --all'
+merged = 0
 
+[[plugins]]
+repo = 'yuki-yano/fzf-preview.vim'
+rev = 'release/rpc'
+
+##--------------------------------------------------
 ## Utilities
+##--------------------------------------------------
 [[plugins]]
 repo = 'junegunn/goyo.vim' # Enable Zen mode
 
 [[plugins]]
 repo = 'vim-denops/denops.vim' # Deno Base Plugin
+hook_add = '''
+set runtimepath^=~/Denops/_develop
+let g:denops#debug = 1
+'''
 
 [[plugins]]
 repo = 'itchyny/calendar.vim' # Enable calendar view
+hook_add = '''
+let g:calendar_first_day = "monday"
+'''
 
 [[plugins]]
 repo = 'tyru/open-browser.vim'
+hook_add = '''
+nmap <Leader>t <Plug>(openbrowser-smart-earch)
+vmap <Leader>t <Plug>(openbrowser-smart-earch)
+'''
 
 [[plugins]]
 repo = 'scrooloose/nerdtree'

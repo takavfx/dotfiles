@@ -69,16 +69,6 @@ if &term =~ "xterm"
 endif
 
 
-" Set credentials
-
-
-" Plugin Development {{{
-
-set runtimepath^=~/Denops/_develop
-
-" }}}
-
-
 " Plugins {{{
 " dein.vim settings {{{
 let s:dein_dir = expand('~/.cache/dein')
@@ -128,45 +118,3 @@ if len(s:removed_plugins) > 0
 endif
 " }}}
 
-
-" plugin debug {{{
-
-let g:denops#debug = 1
-
-" }}}
-
-
-" plugin settings {{{
-" settings: vim-polyglot
-let g:polyglot_disabled = ['markdown']
-
-" settings: expand_region
-vmap v <Plug>(expand_region_expand)
-map <C-v> <Plug>(expand_region_shrink)
-
-"settings: easy_motion
-map mj <Plug>(easy_motion-bd-w)
-nmap mj <Plug>(easymotion-overwin-w)
-map ml <Plug>(easymotion-bd-jk)
-nmap ml <Plug>(easymotion-overwin-line)
-map mk <Plug>(easymotion-bd-f)
-nmap mk <Plug>(easymotion-verwin-f)
-
-" vim-operator-surround
-map <Leader>s <Plug>(operator-surround-append)
-
-" settings: open-browser
-nmap <Leader>b <Plug>(openbrowser-smart-search)
-vmap <Leader>b <Plug>(openbrowser-smart-search)
-
-" settings: calendar
-let g:calendar_first_day = "monday"
-
-" settings: auto complete {{{
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
-
-" }}}
-
-" }}}
