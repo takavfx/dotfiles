@@ -46,6 +46,8 @@ set noswapfile
 " Syntax Highlight
 syntax enable
 
+" colortheme
+"colorscheme darkblue
 
 " Tab
 map <C-T>l :tabnext<cr>
