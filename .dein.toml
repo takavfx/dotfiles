@@ -146,6 +146,9 @@ build = './install --all'
 merged = 0
 
 [[plugins]]
+repo = 'junegunn/fzf.vim'
+
+[[plugins]]
 repo = 'yuki-yano/fzf-preview.vim'
 rev = 'release/rpc'
 
