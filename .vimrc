@@ -46,8 +46,8 @@ set noswapfile
 " Syntax Highlight
 syntax enable
 
-" colortheme
-"colorscheme darkblue
+" Color Scheme
+colorscheme darkblue
 
 " Tab
 map <C-T>l :tabnext<cr>
@@ -55,21 +55,11 @@ map <C-T>h :tabprevious<cr>
 map <C-T>n :tabnew<cr>
 map <C-T>c :tabclose<cr>
 
-
 " Paste from Clipboard
-if &term =~ "xterm"
-	let &t_SI .= "\e[?2004h"
-	let &t_EI .= "\e[?2004l"
-	let &pastetoggle = "\e[201~"
+set clipboard+=unnamed
 
-	function XTermPasteBegin(ret)
-		set paste
-		return a:ret
-	endfunction
-
-	inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
-endif
-
+" shell
+"set shell=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
 
 " Plugins {{{
 " dein.vim settings {{{
