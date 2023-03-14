@@ -1,6 +1,6 @@
 @echo off
 
 @REM vim
-mklink .\.vimrc %HOMEDRIVE%%HOMEPATH%\.vimrc
-mklink .\.dein.toml %HOMEDRIVE%%HOMEPATH%\.vimrc
+mklink %HOMEDRIVE%%HOMEPATH%\.vimrc .\.vimrc 
+mklink %HOMEDRIVE%%HOMEPATH%\.dein.toml .\.dein.toml 
 
