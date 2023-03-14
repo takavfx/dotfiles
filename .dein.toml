@@ -13,6 +13,8 @@
 [[plugins]]
 repo= 'Shougo/dein.vim'
 
+[[plugins]]
+repo = 'wsdjeg/dein-ui.vim'
 
 ##--------------------------------------------------
 ## Editor
@@ -20,13 +22,13 @@ repo= 'Shougo/dein.vim'
 [[plugins]]
 repo = 'scrooloose/syntastic'
 
-#[[plugins]]
-#repo = 'bronson/vim-trailing-whitespace'
-
-# [[plugins]]
-# repo = 'Yggdroot/indentLine'
+[[plugins]]
+repo = 'bronson/vim-trailing-whitespace'
 
 [[plugins]]
+repo = 'Yggdroot/indentLine'
+
+[[plugins]] # https://github.com/preservim/vim-indent-guides
 repo = 'nathanaelkane/vim-indent-guides'
 
 [[plugins]]
@@ -51,28 +53,32 @@ nmap mk <Plug>(easymotion-verwin-f)
 
 [[plugins]]
 repo = 'scrooloose/nerdcommenter'
-
-[[plugins]]
-repo = 'terryma/vim-expand-region'
 hook_add = '''
-vmap v <Plug>(expand_region_expand)
-map <C-v> <Plug>(expand_region_shrink)
+let g:NERDSpaceDelims=1
+let g:NERDDefaultAlign='left'
 '''
-
+ 
+# [[plugins]]
+# repo = 'terryma/vim-expand-region'
+# hook_add = '''
+# vmap v <Plug>(expand_region_expand)
+# map <C-v> <Plug>(expand_region_shrink)
+# '''
+ 
 [[plugins]]
 repo = 'violetyk/iikanji-markdown.vim'
-
-[[plugins]]
-repo = 'terryma/vim-multiple-cursors'
-
-[[plugins]]
-repo = 'kana/vim-operator-user'
-
-[[plugins]]
-repo = 'rhysd/vim-operator-surround'
-
-[[plugins]]
-repo = 'fatih/vim-go'
+ 
+# [[plugins]]
+# repo = 'terryma/vim-multiple-cursors'
+# 
+# [[plugins]]
+# repo = 'kana/vim-operator-user'
+# 
+# [[plugins]]
+# repo = 'rhysd/vim-operator-surround'
+# 
+# [[plugins]]
+# repo = 'fatih/vim-go'
 
 ##--------------------------------------------------
 ## Auto Complate
@@ -162,23 +168,23 @@ repo = 'itchyny/lightline.vim'
 ##--------------------------------------------------
 ## Finder
 ##--------------------------------------------------
-[[plugins]]
-repo = 'junegunn/fzf'
-build = './install --all'
-merged = 0
+# [[plugins]]
+# repo = 'junegunn/fzf'
+# build = './install --all'
+# merged = 0
 
-[[plugins]]
-repo = 'junegunn/fzf.vim'
+# [[plugins]]
+# repo = 'junegunn/fzf.vim'
 
-[[plugins]]
-repo = 'yuki-yano/fzf-preview.vim'
-rev = 'release/rpc'
+# [[plugins]]
+# repo = 'yuki-yano/fzf-preview.vim'
+# rev = 'release/rpc'
 
 ##--------------------------------------------------
-## Color Theme 
+## Color Theme
 ##--------------------------------------------------
-[[plugins]]
-repo = "sonph/onehalf"
+# [[plugins]]
+# repo = "sonph/onehalf"
 
 ##--------------------------------------------------
 ## Utilities
@@ -189,6 +195,7 @@ repo = 'junegunn/goyo.vim' # Enable Zen mode
 [[plugins]]
 repo = 'vim-denops/denops.vim' # Deno Base Plugin
 hook_add = '''
+let g:denops_disable_version_check = 1
 set runtimepath^=~/Denops/_develop
 " let g:denops#debug = 1
 '''
@@ -208,6 +215,10 @@ vmap <Leader>t <Plug>(openbrowser-smart-earch)
 
 [[plugins]]
 repo = 'scrooloose/nerdtree'
+hook_add = '''
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<Cr>
+'''
 
 [[plugins]]
 repo = 'LeafCage/vimhelpgenerator' # Help Generator
