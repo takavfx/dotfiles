@@ -190,7 +190,7 @@ repo = 'junegunn/goyo.vim' # Enable Zen mode
 repo = 'vim-denops/denops.vim' # Deno Base Plugin
 hook_add = '''
 set runtimepath^=~/Denops/_develop
-let g:denops#debug = 1
+" let g:denops#debug = 1
 '''
 
 [[plugins]]
