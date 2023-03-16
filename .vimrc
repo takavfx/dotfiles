@@ -15,8 +15,8 @@ set fileencodings=utf-8,cp932
 
 "" Set Options
 set number
-"set hlsearch
-"set incsearch
+set hlsearch
+set incsearch
 
 
 "" Edit
