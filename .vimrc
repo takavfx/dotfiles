@@ -1,7 +1,7 @@
-"                                _                    
-"                         __   _(_)_ __ ___  _ __ ___ 
+"                                _
+"                         __   _(_)_ __ ___  _ __ ___
 "                         \ \ / / | '_ ` _ \| '__/ __|
-"                          \ V /| | | | | | | | | (__ 
+"                          \ V /| | | | | | | | | (__
 "                         (_)_/ |_|_| |_| |_|_|  \___|
 "
 
@@ -17,6 +17,7 @@ set fileencodings=utf-8,cp932
 set number
 set hlsearch
 set incsearch
+nmap <Esc><Esc> :nohl<CR>
 
 
 "" Edit
@@ -111,4 +112,3 @@ if len(s:removed_plugins) > 0
 	call dein#recache_runtimepath()
 endif
 "" }}}
-
