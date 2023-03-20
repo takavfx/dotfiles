@@ -66,7 +66,7 @@ set clipboard+=unnamed
 
 try
 	source ./.dein.vim
-	source ~/.vim/.crednetial
+	source ./.credential.vim
 catch
 	" No such file? No problem; just ignore it.
 endtry
