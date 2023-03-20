@@ -143,6 +143,14 @@ repo = 'keremc/asyncomplete-clang.vim'
 #[[plugins]]
 #repo = 'Shougo/ddu-ui-ff'
 
+
+##--------------------------------------------------
+## Source Control
+##--------------------------------------------------
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+
 ##--------------------------------------------------
 ## Formatter
 ##--------------------------------------------------
@@ -196,7 +204,7 @@ repo = 'junegunn/goyo.vim' # Enable Zen mode
 repo = 'vim-denops/denops.vim' # Deno Base Plugin
 hook_add = '''
 let g:denops_disable_version_check = 1
-set runtimepath^=~/Denops/_develop
+set runtimepath^=~/.denops
 "let g:denops#debug = 1
 '''
 
@@ -204,7 +212,7 @@ set runtimepath^=~/Denops/_develop
 repo = 'takavfx/dailynote.vim'
 depends = 'denops.vim'
 hook_add = '''
-" let g:daylynote#pathfmt = 'YYYY/YYYY-MM/YYYY-MM-dd'
+let g:dailynote#pathfmt = 'YYYY/YYYY-MM/YYYY-MM-dd'
 '''
 
 [[plugins]]
@@ -223,7 +231,7 @@ vmap <Leader>t <Plug>(openbrowser-smart-earch)
 [[plugins]]
 repo = 'scrooloose/nerdtree'
 hook_add = '''
-nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-b> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<Cr>
 '''
 
