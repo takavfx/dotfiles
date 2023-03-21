@@ -64,60 +64,64 @@ set clipboard+=unnamed
 "" shell
 "set shell=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
 
-"" Plugins {{{
-"" dein.vim settings {{{
+"" BEGIN Plugins {{{
+" dein.vim settings
 let s:dein_dir = expand('~/.vim/.cache/dein')
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
-"" }}}
 
-"" dein installation check {{{
+" dein installation check
 if $runtimepath !~# '/dein.vim'
     if !isdirectory(s:dein_repo_dir)
         execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
     endif
     execute 'set runtimepath^=' . s:dein_repo_dir
 endif
-"" }}}
 
-"" begin settings {{{
+" begin settings
 if dein#load_state(s:dein_dir)
 	call dein#begin(s:dein_dir)
 
-	"" .toml file
+	" .toml file
 	let s:rc_dir = expand('~')
 	if !isdirectory(s:rc_dir)
 		"call mkdir(s:rc_dir, 'p')
 	endif
 	let s:toml = s:rc_dir . '/.vim/.dein.toml'
 
-	"" read toml and cache
+	" read toml and cache
 	call dein#load_toml(s:toml, {'lazy': 0})
 
-	"" end settings
+	" end settings
    call dein#end()
 	call dein#save_state()
 endif
-"" }}}}
 
-"" plugin installation check {{{
+" plugin installation check
 if dein#check_install()
 	call dein#install()
 endif
-"" }}}
 
-"" plugin remove check {{{
+" plugin remove check
 let s:removed_plugins = dein#check_clean()
 if len(s:removed_plugins) > 0
 	call map(s:removed_plugins, "delete(v:val, 'rf')")
 	call dein#recache_runtimepath()
 endif
-"" }}}
+"" }}} END Plugins
 
-"" Load credentail setting script
+"" BEGIN local cred/dev settings {{{
+" Load credentail setting script
 try
 	execute 'source ' . expand('~/.vim/.credential.vim')
+catch
+	" Ignore imports
+endtry
+
+" Load devenv setting script
+try
 	execute 'soruce ' . expand('~/.vim/.dev.vim')
 catch
 	" Ignore imports
 endtry
+"" }}} END local cred/dev settings
 
