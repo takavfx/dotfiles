@@ -66,7 +66,7 @@ set clipboard+=unnamed
 
 "" Plugins {{{
 "" dein.vim settings {{{
-let s:dein_dir = expand('~/.cache/dein')
+let s:dein_dir = expand('~/.vim/.cache/dein')
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 "" }}}
 
@@ -88,7 +88,7 @@ if dein#load_state(s:dein_dir)
 	if !isdirectory(s:rc_dir)
 		"call mkdir(s:rc_dir, 'p')
 	endif
-	let s:toml = s:rc_dir . '/.dein.toml'
+	let s:toml = s:rc_dir . '/.vim/.dein.toml'
 
 	"" read toml and cache
 	call dein#load_toml(s:toml, {'lazy': 0})
@@ -113,9 +113,11 @@ if len(s:removed_plugins) > 0
 endif
 "" }}}
 
+"" Load credentail setting script
 try
-	source ./.credential.vim
+	execute 'source ' . expand('~/.vim/.credential.vim')
+	execute 'soruce ' . expand('~/.vim/.dev.vim')
 catch
-	" No such file? No problem; just ignore it.
+	" Ignore imports
 endtry
 
