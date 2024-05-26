@@ -109,25 +109,29 @@ repo = 'violetyk/iikanji-markdown.vim'
 #repo = 'Shougo/neco-vim'
 
 [[plugins]]
-repo = 'prabirshrestha/vim-lsp'
+repo = 'neoclide/coc.nvim'
+branch = 'release'
 
-[[plugins]]
-repo = 'mattn/vim-lsp-settings'
-depends = 'vim-lsp'
+# [[plugins]]
+# repo = 'prabirshrestha/vim-lsp'
 
-[[plugins]]
-repo = 'prabirshrestha/asyncomplete.vim'
-hook_add = '''
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
-'''
+# [[plugins]]
+# repo = 'mattn/vim-lsp-settings'
+# depends = 'vim-lsp'
 
-[[plugins]]
-repo = 'prabirshrestha/asyncomplete-lsp.vim'
+# [[plugins]]
+# repo = 'prabirshrestha/asyncomplete.vim'
+# hook_add = '''
+# inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+# inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+# inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
+# '''
 
-[[plugins]]
-repo = 'keremc/asyncomplete-clang.vim'
+# [[plugins]]
+# repo = 'prabirshrestha/asyncomplete-lsp.vim'
+
+# [[plugins]]
+# repo = 'keremc/asyncomplete-clang.vim'
 
 ##--------------------------------------------------
 ## ddu plugins
@@ -167,6 +171,13 @@ hook_add = '''
 let g:polyglot_disabled = ['markdown']
 '''
 
+[[plugins]]
+repo = 'rust-lang/rust.vim'
+hook_add = '''
+let g:rustfmt_autosave = 1
+'''
+
+
 ##--------------------------------------------------
 ## Status line
 ##--------------------------------------------------
@@ -204,16 +215,16 @@ repo = 'junegunn/goyo.vim' # Enable Zen mode
 repo = 'vim-denops/denops.vim' # Deno Base Plugin
 hook_add = '''
 let g:denops_disable_version_check = 1
-set runtimepath^=~/.denops
+set runtimepath^=~/.denops,F:\Develop\Git\dailynote.vim,F:\Develop\Git\gptwriter.vim
 "let g:denops#debug = 1
 '''
 
-[[plugins]]
-repo = 'takavfx/dailynote.vim'
-depends = 'denops.vim'
-hook_add = '''
-let g:dailynote#pathfmt = 'YYYY/YYYY-MM/YYYY-MM-dd'
-'''
+# [[plugins]]
+# repo = 'takavfx/dailynote.vim'
+# depends = 'denops.vim'
+# hook_add = '''
+# let g:dailynote#pathfmt = 'YYYY/YYYY-MM/YYYY-MM-dd'
+# '''
 
 [[plugins]]
 repo = 'itchyny/calendar.vim' # Enable calendar view
