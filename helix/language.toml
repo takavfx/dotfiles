@@ -1,2 +1,12 @@
-# [[language]]
-# name = "rust"
+[[language]]
+name = "rust"
+auto-format = true
+
+[[language]]
+name = "python"
+roots = [".git", ".venv"]
+auto-format = true
+language-servers = ["python-lsp-ruff"]
+
+[language.config.pylsp.plugins]
+ruff = { enabled = true }
