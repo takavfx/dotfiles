@@ -2,3 +2,6 @@
 name = "python"
 auto-format = true
 
+[[language]]
+name = "svelte"
+auto-format = true
