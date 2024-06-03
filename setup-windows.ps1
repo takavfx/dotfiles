@@ -1,6 +1,13 @@
 # Helix
-New-Item -ItemType SymbolicLink -Path $Env:APPDATA\helix\config.toml -Target .\helix\config.toml
-New-Item -ItemType SymbolicLink -Path $Env:APPDATA\helix\languages.toml -Target .\helix\languages.toml
+if (!(Test-Path $Env:APPDATA\helix)) {
+    New-Item -ItemType SymbolicLink -Path $Env:APPDATA\helix -Target helix
+} else {
+    $confirmation = Read-Host "helix directory already exists. Do you want to overwrite it? (y/n)"
+    if ($confirmation -eq "y") {
+        Remove-Item $Env:APPDATA\helix -Recurse
+        New-Item -ItemType SymbolicLink -Path $Env:APPDATA\helix -Target helix
+    }
+}
 
 # NeoVim
 if (!(Test-Path $Env:LOCALAPPDATA\nvim)) {
