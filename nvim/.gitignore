@@ -6,3 +6,6 @@ debug
 foo.*
 *.log
 data
+
+# for development
+dev-local.lua
