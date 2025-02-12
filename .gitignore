@@ -1,3 +1,5 @@
 # Ignore credential vim settings
 .credential.vim
+
+# Ignore local (Dev) files for LazyVim 
 nvim/**/local.lua
