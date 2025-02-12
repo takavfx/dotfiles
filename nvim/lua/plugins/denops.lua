@@ -12,9 +12,4 @@ return {
   -- { "Shougo/ddu-kind-file", depends = { "vim-denops/denops.vim" } },
   -- { "Shougo/ddu-filter-matcher_substring", depends = { "vim-denops/denops.vim" } },
   -- { "Shougo/ddu-kind-file", depends = { "vim-denops/denops.vim" } },
-  {
-    dir = "E:/Develop/NeoVim/p4cmd.vim",
-    name = "p4cmd.vim",
-    depends = { "vim-denops/denops.vim" },
-  },
 }
