@@ -111,7 +111,7 @@ endif
 "" }}} END Plugins
 
 "" BEGIN local cred/dev settings {{{
-" Load credentail setting script
+" Load credential setting script
 try
 	execute 'source ' . expand('~/.vim/.credential.vim')
 catch
@@ -120,7 +120,7 @@ endtry
 
 " Load devenv setting script
 try
-	execute 'soruce ' . expand('~/.vim/.dev.vim')
+	execute 'source ' . expand('~/.vim/.dev.vim')
 catch
 	" Ignore imports
 endtry
