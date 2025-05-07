@@ -8,4 +8,4 @@ foo.*
 data
 
 # for development
-dev-local.lua
+local-*.lua
